@@ -1,0 +1,17 @@
+<section id="SETTINGS_VIEW_ID" hidden data-settings-page aria-labelledby="settings-title">
+  <div class="section-head"><div><div class="eyebrow">MAKE IT YOURS</div><h2 id="settings-title">Settings</h2></div></div>
+  <p class="settings-intro muted">Choose what appears in your hub. Changes save as you make them.</p>
+  <div class="settings-toolbar">
+    <label class="settings-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></svg><span class="sr">Search settings</span><input id="settings-search" type="search" placeholder="Find a setting…" autocomplete="off"></label>
+    <div id="settings-feedback" class="settings-feedback" role="status" aria-live="polite">Saved automatically on this device</div>
+  </div>
+  <form id="settings-form" class="settings-grid">
+    <section class="settings-card"><h3>Your sports</h3><p>Keep at least one sport enabled.</p><div id="settings-sports"></div></section>
+    <section class="settings-card"><h3>App preferences</h3><div id="settings-preferences"></div></section>
+    <section class="settings-card settings-wide"><h3>Tabs by sport</h3><p>Choose the views you use. Games and Settings are always available.</p><div id="settings-tabs" class="settings-columns"></div></section>
+    <section class="settings-card settings-wide"><h3>Page sections</h3><p>Show or hide individual sections in each sport.</p><div id="settings-sections" class="settings-columns"></div></section>
+    <details class="settings-card settings-wide mobile-install"><summary>Add Sofa League to your iPhone</summary><p>Open this hub in Safari, then:</p><ol><li>Open Safari’s Share menu.</li><li>Choose <strong>Add to Home Screen</strong>.</li><li>Turn on <strong>Open as Web App</strong> if offered, then tap <strong>Add</strong>.</li></ol><p>Your teams and settings are saved on this device. Live data and videos need internet. The shared hub opens without a ChatGPT login. Streaming services may require their own sign-in.</p></details>
+    <section class="settings-card settings-wide settings-restore"><div><h3>Restore the default layout</h3><p>This restores visibility and app preferences. Your team selections stay saved.</p></div><button type="button" id="settings-reset" class="settings-button">Restore defaults</button></section>
+  </form>
+  <p id="settings-no-results" class="settings-no-results" hidden>No settings match. Try a sport name, “refresh,” or “colors.”</p>
+</section>

@@ -1,0 +1,16 @@
+{
+  "name": "the-sofa-league",
+  "version": "1.6.0",
+  "private": true,
+  "type": "module",
+  "description": "The Sofa League — an NHL, NFL, and NBA viewing hub.",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "start": "node server.mjs",
+    "dev": "node build.mjs && node server.mjs",
+    "test": "node build.mjs && node check-mobile.mjs && node check-broadcast.mjs && node check-overhaul.mjs && node check-players.mjs && node check-league-averages.mjs"
+  }
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" data-desk-sport="football" data-home-design="booth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A personal NFL viewing guide with kickoff times, broadcast networks, scores and standings.">
+  <meta name="theme-color" content="#11161d">
+  <title>The Sofa League | NFL Viewing Hub</title>
+  <link rel="stylesheet" href="/desk.css">
+  <script src="/desk.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top">
+    <div class="wrap app-header">
+      <div class="app-top">
+        <a class="game-brand" href="#/games" aria-label="The Sofa League, NFL home"><span class="game-mark" aria-hidden="true">▥</span><span>THE SOFA LEAGUE<b>.</b></span></a>
+        <!-- DESK_SWITCH -->
+        <label class="zone app-control"><span class="sr">Display time zone</span><span aria-hidden="true">◷</span><select id="zone"><option value="">Local time</option><option value="America/New_York">Eastern</option><option value="America/Chicago">Central</option><option value="America/Denver">Mountain</option><option value="America/Los_Angeles">Pacific</option></select></label>
+      </div>
+      <div class="app-links"><nav aria-label="Main navigation"><a href="#/games" aria-current="page">Schedule</a><a href="#/my-team">My Team</a><a href="#/standings">Standings</a></nav></div>
+    </div>
+  </header>
+  <main class="wrap" id="main">
+    <section class="hero booth-heading" aria-labelledby="hero-title"><div><h1 id="hero-title">This week</h1><span id="season" class="sr"></span></div><details class="booth-date-picker" id="booth-date-picker"><summary aria-label="Choose game date"><span id="booth-date-label">Choose week</span><span aria-hidden="true">⌄</span></summary><div class="booth-calendar"><div class="week-nav"><button class="square" id="prev" aria-label="Previous week">‹</button><label><span class="sr">Select NFL week</span><select id="week" class="control"></select></label><button class="square" id="next" aria-label="Next week">›</button></div><div class="days" id="days" aria-label="Select game day"></div></div></details><img class="team-watermark" alt="" aria-hidden="true" hidden></section>
+    <div class="status"><span id="status" role="status">Connecting to NFL data</span><button id="refresh" class="plain">Refresh ↻</button></div>
+    <section id="games-view" aria-labelledby="schedule-title">
+      <div class="filter-bar booth-filter-bar"><div class="booth-segments" aria-label="Schedule filters"><button id="all-games" type="button" aria-pressed="true">All games</button><button id="booth-team-filter" type="button" aria-pressed="false">My team</button></div><details id="booth-filters" class="booth-filters"><summary>Filters<span id="booth-filter-count" class="sr"></span></summary><div class="booth-filter-options"><label for="team">Filter by team</label><select id="team" class="control"><option value="">All teams</option></select><label for="network">Filter by network</label><select id="network" class="control"><option value="">All networks</option></select></div></details><span id="count" class="muted" role="status"></span></div>
+      <section class="spotlight booth-spotlight" id="football-spotlight" aria-label="Must-Watch matchup"><div class="eyebrow" id="spotlight-title">Must-Watch</div><div id="featured">Checking the schedule.</div></section>
+      <div class="layout"><div class="schedule"><h2 id="schedule-title" class="sr">NFL game schedule</h2>
+          <div id="games"></div>
+        </div>
+        <aside>
+          <section class="side booth-resource"><div class="eyebrow">BROADCAST GUIDE</div><h3>U.S. listings</h3><p>CBS and FOX Sunday afternoon games depend on your local market. Networks and kickoff times can change with flex scheduling.</p></section>
+          <section class="side booth-resource" id="bye-card" hidden><div class="eyebrow">OFF THIS WEEK</div><h3>Bye teams</h3><p id="byes"></p></section>
+        </aside>
+      </div>
+    </section>
+    <section id="standings-view" aria-labelledby="standings-title" hidden>
+      <div class="section-head"><div><div class="eyebrow soft">THE PLAYOFF RACE</div><h2 id="standings-title">Standings</h2></div><label><span class="sr">Filter by conference</span><select id="conference" class="control"><option value="">All divisions</option><option>AFC</option><option>NFC</option></select></label></div>
+      <div id="standings" class="standings"></div>
+    </section>
+    <section id="my-team-view" aria-labelledby="my-team-title" hidden>
+      <div class="section-head team-heading"><div><div class="eyebrow soft">YOUR TEAM</div><h2 id="my-team-title">My Team</h2></div><label><span class="sr">Select your NFL team</span><select class="control" id="my-team-select"></select></label></div>
+      <div class="team-tools"><span id="my-team-status" role="status"></span><button class="plain" id="my-team-refresh" type="button">Refresh ↻</button></div>
+      <div id="my-team-body"></div>
+    </section>
+  </main>
+  <footer class="wrap footer"><span>THE SOFA LEAGUE <span class="muted">/ NFL viewing guide</span></span><span class="muted">Data from ESPN</span></footer>
+  <dialog id="football-dialog" aria-labelledby="football-dialog-title"><div class="dialog-top"><span class="eyebrow">MATCHUP DETAILS</span><form method="dialog"><button type="submit" class="square" aria-label="Close">×</button></form></div><div id="football-dialog-body"></div></dialog>
+</body>
+</html>

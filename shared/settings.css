@@ -1,0 +1,25 @@
+.settings-intro{margin:5px 0 12px}
+html[data-settings-open="true"] .hero{display:none}
+html[data-settings-open="true"] .statusbar,html[data-settings-open="true"] .status{margin-top:12px}
+.settings-feedback{min-height:22px;margin-bottom:8px;color:var(--muted);font-size:13px}
+.settings-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.settings-card{padding:18px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.settings-card h3{font-size:20px;margin:0 0 4px}
+.settings-card h4{font-size:14px;color:var(--desk-accent);margin:12px 0 6px}
+.settings-card p{color:var(--muted);font-size:13px;margin:0 0 11px}
+.settings-wide{grid-column:1/-1}
+.settings-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.settings-toggle{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);cursor:pointer;font-size:14px}
+.settings-toggle:last-child{border-bottom:0}
+.settings-toggle small{display:block;margin-top:2px;font-size:12px;color:var(--muted);line-height:1.4}
+.settings-toggle input{appearance:none;position:relative;flex:none;cursor:pointer;width:39px;height:23px;background:#4d5862;border:1px solid #6a7682;border-radius:20px;margin:0}
+.settings-toggle input::after{content:"";position:absolute;width:17px;height:17px;left:2px;top:2px;border-radius:50%;background:#edf2f7}
+.settings-toggle input:checked{background:var(--desk-accent);border-color:var(--desk-accent)}
+.settings-toggle input:checked::after{left:18px;background:#18212b}
+.settings-toggle input:focus-visible{outline:2px solid var(--desk-accent);outline-offset:3px}
+.settings-button{color:inherit;background:var(--raised,var(--panel));border:1px solid var(--line);border-radius:7px;padding:8px 12px;font:700 13px var(--body);cursor:pointer}
+.settings-button:hover{border-color:var(--desk-accent)}
+[data-hub-hidden="true"]{display:none!important}
+.layout[data-no-sidebar="true"]{grid-template-columns:minmax(0,1fr)!important}
+html[data-reduce-motion="true"] *,html[data-reduce-motion="true"] *::before,html[data-reduce-motion="true"] *::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+@media(max-width:680px){.settings-grid,.settings-columns{grid-template-columns:1fr}.settings-columns{gap:8px}.settings-card{padding:14px}}

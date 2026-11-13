@@ -1,0 +1,17 @@
+import {cp,copyFile,mkdir,access} from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const args = process.argv.slice(2);
+if (args.length !== 4 || args[0] !== '--runtime-dir' || args[2] !== '--output-dir') throw new Error('Use --runtime-dir <existing Electron app folder> --output-dir <new folder>');
+const runtime = path.resolve(args[1]);
+const output = path.resolve(args[3]);
+const base = path.dirname(fileURLToPath(import.meta.url));
+if (runtime === output || runtime.startsWith(output + path.sep) || output.startsWith(runtime + path.sep)) throw new Error('Use separate runtime and output folders.');
+await access(path.join(runtime,'The Game Desk.exe'));
+await cp(runtime,output,{recursive:true});
+const app = path.join(output,'resources','app');
+await mkdir(app,{recursive:true});
+for (const name of ['main.cjs','package.json','icon.png','icon.ico']) await copyFile(path.join(base,'desktop',name),path.join(app,name));
+await copyFile(path.join(base,'dist','server','index.js'),path.join(app,'hub.mjs'));
+await copyFile(path.join(base,'desktop','README.txt'),path.join(output,'README.txt'));
+console.log('Built desktop app from the same validated bundle: ' + output);

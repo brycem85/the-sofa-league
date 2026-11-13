@@ -1,0 +1,43 @@
+:root{--orange:#ffad82}
+.hero{background:radial-gradient(ellipse at 82% 15%,#51372d,#242434 70%);border-color:#574739}
+.hero::after{background:linear-gradient(90deg,#232432 0%,#232432ed 32%,#23243213 76%)}
+.spotlight{padding:15px 18px;margin-bottom:22px;border:1px solid #70503d;border-radius:12px;background:linear-gradient(115deg,#342a2c,#3b2a25)}
+.spotlight .eyebrow{margin-bottom:6px}
+.spotlight-body{display:flex;align-items:center;gap:13px;flex-wrap:wrap}
+.spotlight-logos{display:flex;align-items:center;gap:3px;color:var(--muted)}
+.spotlight-logos img{width:46px;height:46px;object-fit:contain}
+.spotlight-details{flex:1 1 250px}
+.spotlight h3{margin:0;font-size:20px;line-height:1.25}
+.spotlight p{margin:4px 0 0;color:var(--muted);font-size:13px}
+.nba-link{color:var(--orange);font-weight:800;font-size:13px}
+.side .nba-link{display:inline-block;margin-top:7px}
+.nba-link:hover{text-decoration:underline}
+.nba-action{display:inline-flex;align-items:center;gap:4px;padding:6px 8px;background:var(--orange);color:#211915;border:1px solid var(--orange);border-radius:6px;font:800 12px/1.4 var(--body);white-space:nowrap}
+.nba-action:hover{background:color-mix(in srgb,var(--orange) 82%,white)}
+.nba-game{grid-template-columns:minmax(0,1.08fr) minmax(0,1fr) auto}
+.nba-game .network{overflow-wrap:anywhere}
+.nba-guide{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+.nba-guide p{font-size:14px}
+.nba-recap{max-width:860px;overflow:hidden;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.nba-recap-frame{position:relative;aspect-ratio:16/9;min-height:200px;background:#0b0e13}
+.nba-recap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.nba-recap-info{padding:14px 17px;display:flex;justify-content:space-between;align-items:center;gap:11px;flex-wrap:wrap}
+.nba-recap-info h3{margin:0}
+.nba-recap-info p{margin:3px 0 0;font-size:13px}
+.nba-market{margin-bottom:12px}
+.nba-market-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:5px 12px;padding:11px}
+.nba-market-top h3{padding:0}
+.nba-market-top span{color:var(--muted);font-size:12px}
+.nba-market td:first-child small{color:var(--muted);margin-left:4px}
+.nba-market .spread-note{margin:0;padding:6px 11px;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}
+.nba-seed{font-weight:800;color:var(--muted)}
+tr[data-cutoff="true"] td{border-top:2px solid var(--orange)}
+dialog{color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:12px;width:min(490px,calc(100% - 30px));padding:15px 17px}
+dialog::backdrop{background:#080b11b8}
+.nba-dialog-top,.nba-dialog-actions{display:flex;align-items:center;justify-content:space-between;gap:7px;flex-wrap:wrap}
+.nba-dialog-actions{justify-content:start;margin-top:14px}
+dialog h3{margin:8px 0 0}
+dialog p{margin:5px 0;color:var(--muted)}
+@media(max-width:990px){.nba-game{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}.nba-game button{grid-column:2;justify-self:start}}
+@media(max-width:770px){.nba-guide{grid-template-columns:repeat(2,minmax(0,1fr))}.nba-game{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) auto}.nba-game button{grid-column:auto}}
+@media(max-width:510px){.nba-guide{grid-template-columns:1fr}.nba-game{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}.nba-game button{grid-column:2;justify-self:start}.spotlight-logos img{width:34px;height:34px}.spotlight{padding:12px}.nba-market td:first-child small{display:block;margin-left:0}}

@@ -1,0 +1,50 @@
+html[data-desk-sport="hockey"]{--desk-accent:var(--lime)}
+html[data-desk-sport="football"]{--desk-accent:var(--orange)}
+html[data-desk-sport="basketball"]{--desk-accent:var(--orange)}
+html[data-team-theme]{
+  --lime:var(--team-accent);
+  --orange:var(--team-accent);
+  --bg:color-mix(in srgb,#10141b 92%,var(--team-primary));
+  --panel:color-mix(in srgb,#1a2029 89%,var(--team-primary));
+  --panel-hi:color-mix(in srgb,#232b35 86%,var(--team-primary));
+  --raised:var(--panel-hi);
+  --line:color-mix(in srgb,#303a46 82%,var(--team-accent));
+}
+.app-header .app-top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;min-height:63px;gap:13px}
+.game-brand{display:inline-flex;align-items:center;justify-self:start;gap:8px;white-space:nowrap;font:800 23px/.95 var(--display);letter-spacing:.045em}
+.game-brand b{color:var(--desk-accent)}
+.game-mark{display:grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--desk-accent);color:#15191d;font:800 23px/1 var(--display)}
+.app-control{justify-self:end}
+.app-header .sport-switch{display:flex;gap:4px;height:auto;width:auto;align-self:center;justify-content:center;order:0;background:#10151c;padding:3px;border:1px solid var(--line);border-radius:11px}
+.app-header .sport-switch a{display:flex;gap:5px;align-items:center;justify-content:center;min-height:35px;min-width:76px;padding:3px 9px;font-size:12px;letter-spacing:.035em;border-radius:7px;color:var(--muted)}
+.app-header .sport-switch a svg{width:23px;height:23px}
+.app-header .sport-switch a:hover{background:var(--panel);color:var(--ink,var(--text))}
+.app-header .sport-switch a[aria-current]{color:#161b21;background:var(--desk-accent)}
+.app-header .sport-switch a[aria-current]::after{display:none}
+.app-links{border-top:1px solid var(--line)}
+.app-header .app-links nav{display:flex;justify-content:flex-start;gap:23px;height:38px;width:100%;overflow-x:auto;scrollbar-width:thin;align-items:stretch}
+.app-header .app-links nav a{white-space:nowrap;flex:none;font-size:13px}
+.app-header .app-links nav a[aria-current]::after{inset:auto 0 0;background:var(--desk-accent)}
+.app-header .app-links nav a:focus-visible{outline-offset:-3px}
+.team-watermark{position:absolute;z-index:-1;width:min(31%,330px);height:88%;right:8%;top:6%;object-fit:contain;opacity:.2;pointer-events:none;filter:drop-shadow(0 8px 13px #000)}
+html[data-team-theme] .top{background:color-mix(in srgb,#151b22 86%,var(--team-primary))}
+html[data-team-theme] .hero{background:radial-gradient(ellipse at 81% 18%,color-mix(in srgb,#182332 55%,var(--team-primary)),#1a242d 75%)}
+html[data-team-theme] .hero::after{background:linear-gradient(90deg,#17212b 0%,#17212bf2 32%,#17212b08 75%)}
+html[data-team-theme] .field,html[data-team-theme] .rink{opacity:.5}
+html[data-team-theme] .team-banner,html[data-team-theme] .spotlight,html[data-team-theme] .featured,html[data-team-theme] .viewing{
+  background:linear-gradient(120deg,var(--panel) 22%,color-mix(in srgb,#1d2832 68%,var(--team-primary)));
+  border-color:color-mix(in srgb,var(--line) 66%,var(--team-secondary));
+}
+html[data-team-theme] .watch-button:hover,html[data-team-theme] .primary:hover{
+  background:color-mix(in srgb,var(--desk-accent) 76%,white);
+}
+@media(max-width:620px){
+  .app-header .app-top{grid-template-columns:1fr auto;min-height:auto;padding:9px 0;gap:8px}
+  .app-header .sport-switch{order:3;grid-column:1/-1;justify-self:start}
+  .app-header .app-links nav{gap:15px}
+  .app-header .app-links nav a{font-size:12px}
+  .game-brand{font-size:21px}
+  .game-mark{width:31px;height:31px}
+  .team-watermark{width:38%;right:4%;opacity:.16}
+}
+@media(max-width:350px){.app-header .sport-switch a{min-width:68px;padding-inline:5px}}

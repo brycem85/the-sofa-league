@@ -1,0 +1,12 @@
+node_modules/
+dist/
+outputs/
+previews/
+.openai/
+.env
+.env.*
+!.env.example
+*.tar.gz
+*.zip
+*.log
+desktop/hub.mjs

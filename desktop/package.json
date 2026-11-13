@@ -1,0 +1,8 @@
+{
+  "name": "the-game-desk",
+  "productName": "The Sofa League",
+  "version": "1.6.0",
+  "description": "A local desktop hub for NHL, NFL and NBA viewing.",
+  "main": "main.cjs",
+  "private": true
+}

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" data-desk-sport="hockey" data-home-design="booth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NHL scores, schedules, standings, player leaders and broadcast listings in one viewing hub.">
+  <meta name="theme-color" content="#11151a">
+  <title>The Sofa League | NHL Viewing Hub</title>
+  <link rel="stylesheet" href="/desk.css">
+  <script src="/desk.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top">
+    <div class="wrap app-header">
+      <div class="app-top">
+        <a class="game-brand" href="#/games" aria-label="The Sofa League, NHL home"><span class="game-mark" aria-hidden="true">▥</span><span>THE SOFA LEAGUE<b>.</b></span></a>
+        <!-- DESK_SWITCH -->
+        <label class="region app-control"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z"/></svg><span class="sr">Broadcast region</span><select id="region"><option value="US">United States</option><option value="CA">Canada</option><option value="INT">International</option></select></label>
+      </div>
+      <div class="app-links"><nav aria-label="Main navigation">
+          <a href="#/games" aria-current="page">Games</a><a href="#/my-team">My Team</a><a href="#/standings">Standings</a><a href="#/stats">Stats</a><a href="#/highlights">Highlights</a><a href="#/betting">Betting</a><a href="#/watch">Watch guide</a>
+      </nav></div>
+    </div>
+  </header>
+  <main class="wrap" id="main">
+    <section class="hero booth-heading" aria-labelledby="hero-title">
+      <div><h1 id="hero-title">Tonight</h1><span id="season" class="sr">NHL games</span></div>
+      <details class="booth-date-picker" id="booth-date-picker"><summary aria-label="Choose game date"><span id="booth-date-label">Change date</span><span aria-hidden="true">⌄</span></summary>
+        <div class="booth-calendar"><div class="date-actions"><button id="prev" class="icon-button" aria-label="Previous day">‹</button><button id="today" class="soft-button">Today</button><button id="next" class="icon-button" aria-label="Next day">›</button></div><div class="week" id="week" aria-label="Upcoming dates"></div></div>
+      </details><img class="team-watermark" alt="" aria-hidden="true" hidden>
+    </section>
+    <div class="statusbar"><span id="feed-status" role="status"><i></i> Connecting to NHL data</span><button type="button" id="refresh" class="text-button">Refresh <span aria-hidden="true">↻</span></button></div>
+    <section id="view-games" aria-labelledby="games-title">
+      <div class="filter-bar booth-filter-bar"><div class="booth-segments" aria-label="Schedule filters"><button id="all-games" type="button" aria-pressed="true">All games</button><button id="only-faves" type="button" aria-pressed="false">Following</button></div>
+        <details id="booth-filters" class="booth-filters"><summary>Filters<span id="booth-filter-count" class="sr"></span></summary><div class="booth-filter-options"><label for="team">Filter by team</label><select id="team" class="soft-button"><option value="">All teams</option></select><button class="text-button" id="manage-filter-teams" type="button">Manage followed teams</button></div></details><span id="game-count" class="muted"></span><span id="date-label" class="sr"></span>
+      </div>
+      <section class="spotlight booth-spotlight" id="spotlight" aria-label="Must-Watch matchup"><div class="eyebrow" id="spotlight-title">Must-Watch</div><div id="spotlight-body" class="muted">Checking tonight’s schedule.</div></section>
+      <div class="layout">
+        <div><h2 id="games-title" class="sr">NHL game schedule</h2>
+          <div id="games" class="games" aria-live="polite"></div>
+        </div>
+        <aside aria-label="More from your NHL desk">
+          <section class="booth-resource"><h3>Latest NHL recap</h3><p>Official highlights from the latest game day.</p><a class="inline-link" href="#/highlights">Watch highlights</a></section>
+          <section class="booth-resource"><h3>Broadcast guide</h3><p id="watch-teaser"></p><a class="inline-link" href="#/watch">Check viewing options</a></section>
+        </aside>
+      </div>
+    </section>
+    <section id="view-standings" aria-labelledby="standings-title" hidden>
+      <div class="section-head"><div><div class="eyebrow">THE PLAYOFF RACE</div><h2 id="standings-title">Standings</h2></div><label><span class="sr">Standings group</span><select class="soft-button" id="standing-group"><option value="league">Entire league</option><option>Atlantic</option><option>Metropolitan</option><option>Central</option><option>Pacific</option></select></label></div>
+      <div id="standings" class="table-card"></div>
+    </section>
+    <section id="view-stats" aria-labelledby="stats-title" hidden>
+      <div class="section-head"><div><div class="eyebrow">PLAYER LEADERS</div><h2 id="stats-title">League Stats</h2></div></div>
+      <div class="stat-tabs" id="stat-tabs" aria-label="Stat category"></div>
+      <div id="stats" class="table-card"></div>
+    </section>
+    <section id="view-watch" aria-labelledby="watch-title" hidden>
+      <div class="section-head"><div><div class="eyebrow">TV &amp; STREAMING</div><h2 id="watch-title">Watch Guide</h2></div></div>
+      <div id="watch" class="watch-grid"></div>
+    </section>
+    <section id="view-highlights" aria-labelledby="highlights-title" hidden>
+      <div class="section-head"><div><div class="eyebrow">OFFICIAL NHL YOUTUBE</div><h2 id="highlights-title">Featured Highlight</h2></div></div>
+      <div id="highlights"></div>
+    </section>
+    <section id="view-betting" aria-labelledby="betting-title" hidden>
+      <div class="section-head"><div><div class="eyebrow">PREGAME MONEYLINES</div><h2 id="betting-title">Betting</h2></div><label><span class="sr">Odds date</span><input class="soft-button" type="date" id="bet-date"></label></div>
+      <p class="bet-intro muted">Compare sportsbook moneylines and prediction-market prices for the same matchup. Games with the largest difference in normalized implied win probability appear first.</p>
+      <div id="betting"></div>
+      <details class="bet-notes"><summary>How these prices compare</summary><p>Sportsbooks quote American odds. Kalshi shows the price to buy a YES contract. Polymarket shows its quoted outcome prices. For the gap, each source’s two implied prices are scaled to add to 100%. Prices can change and may reflect different fees, settlement rules, or regional markets.</p><p>Sources include <a target="_blank" rel="noopener" href="https://www.nhl.com/scores">NHL sportsbook listings</a>, <a target="_blank" rel="noopener" href="https://docs.kalshi.com/api-reference/market/get-markets">Kalshi</a>, and <a target="_blank" rel="noopener" href="https://docs.polymarket.com/api-reference/events/list-events">Polymarket</a>.</p></details>
+    </section>
+    <section id="view-my-team" aria-labelledby="my-team-title" hidden>
+      <div class="section-head team-heading"><div><div class="eyebrow">YOUR TEAM</div><h2 id="my-team-title">My Team</h2></div><label><span class="sr">Select your NHL team</span><select class="soft-button" id="my-team-select"></select></label></div>
+      <p class="booth-team-explainer">Your main team sets the colors and dashboard. It also appears in Following, along with the other clubs you choose here.</p>
+      <section id="followed-teams-panel" class="booth-followed"><div><h3>Other teams you follow</h3><div id="followed"></div></div><button class="soft-button" id="manage" type="button">Manage followed teams</button></section>
+      <div class="team-tools"><span id="my-team-status" role="status"></span><button class="text-button" id="my-team-refresh" type="button">Refresh ↻</button></div>
+      <div id="my-team-body"></div>
+    </section>
+  </main>
+  <footer class="wrap footer"><span>THE SOFA LEAGUE <span class="muted">/ NHL viewing guide</span></span><a href="https://www.nhl.com/" target="_blank" rel="noopener">Data from NHL.com ↗</a></footer>
+  <dialog id="dialog" aria-labelledby="dialog-kicker"><div class="dialog-top"><div class="eyebrow" id="dialog-kicker"></div><form method="dialog"><button class="icon-button" aria-label="Close">×</button></form></div><div id="dialog-content"></div></dialog>
+</body>
+</html>
